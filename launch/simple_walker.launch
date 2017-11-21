@@ -17,4 +17,12 @@
         name="walker"
         type="walker"
     />
+
+    <node
+        pkg="rosbag"
+        name="record"
+        type="record"
+        args="-a -O $(find simple_walker)/results/sim.bag -x /camera/(.*)"
+        if="$(eval record == 'enable')"
+    />
 </launch>
