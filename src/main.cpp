@@ -36,11 +36,10 @@
  *  way ahead is clear, then move forward again and repeat.
  */
 
-#include <sstream>
+#include <sensor_msgs/LaserScan.h>
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
-#include <sensor_msgs/LaserScan.h>
-#include "walker.hpp" 
+#include "walker.hpp"
 
 int main(int argc, char **argv) {
   // initializing a ros node called walker
@@ -58,7 +57,7 @@ int main(int argc, char **argv) {
   // Creating a publisher object which publishes to the given topic
   ros::Publisher velocity = n.advertise<geometry_msgs::Twist>
                              ("/mobile_base/commands/velocity", 1000);
-  
+
   ros::Rate loop_rate(10);
 
   while (ros::ok()) {
@@ -81,7 +80,7 @@ int main(int argc, char **argv) {
   }
 
   velocity.publish(msg);
- 
+
   ros::spinOnce();
 
   loop_rate.sleep();

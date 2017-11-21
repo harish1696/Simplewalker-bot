@@ -35,20 +35,21 @@
  *  is clear of obstacles and acts accordingly.
  *  
  */
+#ifndef INCLUDE_WALKER_HPP_
+#define INCLUDE_WALKER_HPP_
 
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
 
 class walker {
  public:
-
    /**
    *   @brief  Constructor of Walker class
    *
    *   @param  none
    *   @return none
    */
-   walker();
+  walker();
 
    /**
    *   @brief  Destructor of Walker class
@@ -56,7 +57,7 @@ class walker {
    *   @param  none
    *   @return none
    */
-   ~walker();
+  ~walker();
 
    /**
    *   @brief  Callback function to check if any obstacle 
@@ -65,7 +66,7 @@ class walker {
    *   @param  message of type sensor_msgs::LaserScan
    *   @return none
    */
-   void sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
+  void sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
 
    /**
    *   @brief  returns the value of obstacle
@@ -73,11 +74,11 @@ class walker {
    *   @param  none
    *   @return true if obstacle is within range, otherwise false
    */
-   bool isClose();
+  bool isClose();
 
  private:
     // a flag variable to denote the presence of any obstacle in proximity
     bool obstacle;
-
 };
 
+#endif  // INCLUDE_WALKER_HPP_

@@ -42,12 +42,14 @@
 #include "walker.hpp"
 
 // constructor of walker object
-walker::walker() {}
+walker::walker() {
+  obstacle = false;
+}
 
-// destructor of walker object 
+// destructor of walker object
 walker::~walker() {}
 
-// callback function of subscriber, which keeps checking if there is a obstacle ahead
+// callback function of subscriber
 void walker::sensorCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
     for (int i = 0; i < msg->ranges.size(); ++i) {
         if (msg->ranges[i] < 0.7) {
