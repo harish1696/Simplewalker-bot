@@ -1,0 +1,20 @@
+<launch>
+    <env
+        name="ROSCONSOLE_CONFIG_FILE"
+        value="$(find simple_walker)/config/logger_level.conf"
+    />
+    <arg 
+      name="record" 
+      default="disable"
+    />
+
+    <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+        <arg name="world_file" value="$(find simple_walker)/world/myworld"/>
+    </include>
+
+    <node
+        pkg="simple_walker"
+        name="walker"
+        type="walker"
+    />
+</launch>
