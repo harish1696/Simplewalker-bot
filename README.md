@@ -54,7 +54,7 @@ To get more information about the generated rosbag file, go to the Results direc
 rosbag info sim.bag
 ```
 
-## How to play a rosbag file while listener node is running 
+## How to play a rosbag file  
 The generated rosbag file can also be used to play the recorded messages.Open a terminal window 
 
 ```
@@ -66,5 +66,5 @@ Open a new terminal window.Go to the results directory and run the following com
 ```
 rosbag play sim.bag
 ```
-
+Note: Gazebo should not be running
 
